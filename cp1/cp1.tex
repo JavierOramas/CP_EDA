@@ -1,49 +1,85 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{pink}{rgb}{1.0,0.0,0.5}
+\lstset{
+  frame=none,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{pink},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{green},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
 \author{Javier Alejandro Oramas L\'opez C212}
 \title{Clase Pr\'actica 1 EDA I}
+
 \begin{document}
     \maketitle
     \section{Ejercicio 1}
-        \subsection{a) $ 8n^{2} \leq 64n $} 
-            \begin{enumerate}
-                $$ 8n^{2} \leq 64n $$
-                $$ \frac{8n^{2}}{n} \leq 64 $$
-                $$ 8n \leq 64$$
-                $$ n \leq 8 $$
-            \end{enumerate}
-        
-         \subsection{b) $ 100n^2 \leq 2^n $}
-            $$ 100n^2 \leq 2^n $$
-            $$ 10n \leq 2^{\frac{n}{2}} $$
-            $$ n \leq 14 $$
-            
+        \subsection{ $ 8n^{2} \leq 64n $}
+            \[ 8n^{2} \leq 64n \]
+            \[ \frac{8n^{2}}{n} \leq 64 \]
+            \[ 8n \leq 64\]
+            \[ n \leq 8 \]        
+         \subsection{$ 100n^2 \leq 2^n $}
+            \[ 100n^2 \leq 2^n \]
+            \[ 10n \leq 2^{\frac{n}{2}} \]
+            \[ n \leq 14 \]            
     \section{Ejercicio 2}
-        T(n) alcanza el m\'inimo valor cuando n = 0
-        T(n) alcanza el m\'aximo valor cuando el tama\~no en memoria de A es el m\'aximo posible
-        \subsection{a)}
-            $$ c_{0} + n( c_{1} + c_{2}) +c_{3} $$
-        \subsection{b)}
-            $$ c_{0} + n(c_{1} + c_{2} + \sum_i=1^{N} i (c_{3} +c_{4} + c_{5} +c_{6} +c_{7} )) $$
-        \subsection{c)}
-            $$ c_{0} + n(c_{1} + c_{2}) + c_{3} $$
+        \subsection{}
+            \[ c_{0} + n( c_{1} + c_{2}) +c_{3} \]
+            \paragraph{
+                T (n) es m\'inimo cuando el primer elemento es mayor que el segundo \\
+                T (n) es m\'aximo cuando el array esta totalmente ordenado
+                }
+        \subsection{ }
+            \[ c_{0} + n \left( c_{1} + c_{2} + \sum_{i=2}^{N} i \left(c_{3} +c_{4} + c_{5} +c_{6} +c_{7} \right)\right) \]
+            \paragraph{
+                T (n) es m\'inimo cuanod el array est\'a totalmente ordenado \\
+                T (n) es m\'aximo cuando el array est\'a totalmente desordenado
+                }
+        \subsection{ }  
+            \[ c_{0} + n(c_{1} + c_{2}) + c_{3} \]
+            \paragraph{
+                T (n) es m\'inimo cuanod el primer elemento es igual a key \\
+                T (n) es m\'aximo cuando no contiene a key
+                }
     \section{Ejercicio 3}
+        \paragraph{
         El tama\~no de la entrada es 1
-        \subsection{a)}
-            $$ c_{0} + c_{1} + c_{2} + \sqrt{x}( C_{3} + c_{4} $$
-        \subsection{b)}
-            $$ c_{0} + c_{1} + c_{2} + c_{3} +  x ( c_{4} + c_{5} + c_{6} +c_{7}) + c_{8} $$
+        }
+        \subsection{ }
+            \[ c_{0} + c_{1} + c_{2} + \sqrt{x}\left( C_{3} + c_{4}\right) \]
+        \subsection{ }
+            \[ c_{0} + c_{1} + c_{2} + c_{3} +  x ( c_{4} + c_{5} + c_{6} +c_{7}) + c_{8} \]
             
     \section{Ejercicio 4}
-        \code
-        int Exponentiation(int x, int n)
-        {
-            if(n == 1) 
-                return x;
-            if(n % 2) 
-                return Exponentiation( x,n-1) * x;
-            else 
-                return Exponentiation(x,n/2)*Exponentiation(x,n/2)  
-        }
+        \begin{lstlisting}
+            int Exponentiation(int x, int n)
+            {
+                if(n == 1) 
+                    return x;
+                if(n % 2) 
+                    return Exponentiation(x,n-1) * x;
+                else 
+                    return Exponentiation(x,n/2)*Exponentiation(x,n/2)  
+            }
+        \end{lstlisting}
         
 \end{document}
