@@ -1,0 +1,49 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\author{Javier Alejandro Oramas L\'opez C212}
+\title{Clase Pr\'actica 1 EDA I}
+\begin{document}
+    \maketitle
+    \section{Ejercicio 1}
+        \subsection{a) $ 8n^{2} \leq 64n $} 
+            \begin{enumerate}
+                $$ 8n^{2} \leq 64n $$
+                $$ \frac{8n^{2}}{n} \leq 64 $$
+                $$ 8n \leq 64$$
+                $$ n \leq 8 $$
+            \end{enumerate}
+        
+         \subsection{b) $ 100n^2 \leq 2^n $}
+            $$ 100n^2 \leq 2^n $$
+            $$ 10n \leq 2^{\frac{n}{2}} $$
+            $$ n \leq 14 $$
+            
+    \section{Ejercicio 2}
+        T(n) alcanza el m\'inimo valor cuando n = 0
+        T(n) alcanza el m\'aximo valor cuando el tama\~no en memoria de A es el m\'aximo posible
+        \subsection{a)}
+            $$ c_{0} + n( c_{1} + c_{2}) +c_{3} $$
+        \subsection{b)}
+            $$ c_{0} + n(c_{1} + c_{2} + \sum_i=1^{N} i (c_{3} +c_{4} + c_{5} +c_{6} +c_{7} )) $$
+        \subsection{c)}
+            $$ c_{0} + n(c_{1} + c_{2}) + c_{3} $$
+    \section{Ejercicio 3}
+        El tama\~no de la entrada es 1
+        \subsection{a)}
+            $$ c_{0} + c_{1} + c_{2} + \sqrt{x}( C_{3} + c_{4} $$
+        \subsection{b)}
+            $$ c_{0} + c_{1} + c_{2} + c_{3} +  x ( c_{4} + c_{5} + c_{6} +c_{7}) + c_{8} $$
+            
+    \section{Ejercicio 4}
+        \code
+        int Exponentiation(int x, int n)
+        {
+            if(n == 1) 
+                return x;
+            if(n % 2) 
+                return Exponentiation( x,n-1) * x;
+            else 
+                return Exponentiation(x,n/2)*Exponentiation(x,n/2)  
+        }
+        
+\end{document}
