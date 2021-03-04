@@ -1,0 +1,16 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mínimo cuando el primer elemento es mayor que el segundo T (n) es máximo cuando el array esta totalmente ordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QT (n) es mínimo cuanod el array está totalmente ordenado T (n) es máximo cuando el array está totalmente desordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q .\\E$"}
+{"rule":"EN_SPECIFIC_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mínimo cuando el primer elemento es mayor que el segundo T (n) es máximo cuando el array esta totalmente ordenado .\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qframe=none, language=C++, aboveskip=3mm, belowskip=3mm, showstringspaces=false, columns=flexible, basicstyle=, numbers=none, numberstyle=, keywordstyle=, commentstyle=, stringstyle=, breaklines=true, breakatwhitespace=true, tabsize=3\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QEl tamaño de la entrada es 1 .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mínimo cuando el primer elemento es mayor que el segundo T (n) es máximo cuando el array esta totalmente ordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mınimo cuando el primer elemento es mayor que el segundo T (n) es máximo cuando el array esta totalmente ordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QT (n) es mınimo cuanod el array está totalmente ordenado T (n) es máximo cuando el array está totalmente desordenado .\\E$"}
+{"rule":"EN_SPECIFIC_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mınimo cuando el primer elemento es mayor que el segundo T (n) es máximo cuando el array esta totalmente ordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QT (n) es mınimo cuanod el array está totalmente ordenado T (n) es máximo cuando el array está totalmente desordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mınimo cuanod el array está totalmente ordenado T (n) es máximo cuando el array está totalmente desordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mínimo cuanod el array está totalmente ordenado T (n) es máximo cuando el array está totalmente desordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mi.nimo cuanod el array está totalmente ordenado T (n) es máximo cuando el array está totalmente desordenado .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q T (n) es mínimo cuanod el primer elemento es igual a key T (n) es máximo cuando no contiene a key .\\E$"}
