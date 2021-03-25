@@ -8,6 +8,7 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \definecolor{pink}{rgb}{1.0,0.0,0.5}
+
 \lstset{
   frame=none,
   language=C++,
@@ -42,32 +43,73 @@
             \[ 10n \leq 2^{\frac{n}{2}} \]
             \[ n \leq 14 \]            
     \section{Ejercicio 2}
-        \subsection{}
-            \[ c_{0} + n( c_{1} + c_{2}) +c_{3} \]
+        \subsection{a)}
+            \begin{enumerate}
+                \item $c_{0}$: costo de la asignacióñ
+                \item $c_{1}$: costo de la llamada a .Length() y la comparación
+                \item $c_{2}$: costo del incremento
+                \item $c_{3}$: costo del if, la comparación y la evaluación de A[i] y A[i-1]
+            \end{enumerate}
+            \[ c_{0} + n( c_{1} + c_{2}) +c_{3})\]
             \paragraph{
                 T (n) es m\'inimo cuando el primer elemento es mayor que el segundo \\
                 T (n) es m\'aximo cuando el array esta totalmente ordenado
                 }
-        \subsection{ }
-            \[ c_{0} + n \left( c_{1} + c_{2} + \sum_{i=2}^{N} i \left(c_{3} +c_{4} + c_{5} +c_{6} +c_{7} \right)\right) \]
+        \subsection{b)}
+            \begin{enumerate}
+                \item $c_{0}$: costo de la asignacióñ primer for
+                \item $c_{1}$: costo de la llamada a .Length() y la comparación en el primer for
+                \item $c_{2}$: costo del incremento primer for
+                \item $c_{3}$: costo de la asignación del segundo for
+                \item $c_{4}$: costo de la llamada a .Length() y la comparación en el segundo for
+                \item $c_{5}$: costo del if, la comparación y la evaluación de A[i] y a[j]
+                \item $c_{6}$: costo de la asigación
+                \item $c_{7}$: costo de la asigación
+                \item $c_{8}$: costo de la asigación
+            \end{enumerate}
+            \[ c_{0} + n \left( c_{1} + c_{2} + \sum_{i=2}^{N} i \left(c_{3} +c_{4} + c_{5} +c_{6} +c_{7} +c_{8} \right)\right) \]
             \paragraph{
                 T (n) es m\'inimo cuanod el array est\'a totalmente ordenado \\
                 T (n) es m\'aximo cuando el array est\'a totalmente desordenado
                 }
-        \subsection{ }  
-            \[ c_{0} + n(c_{1} + c_{2}) + c_{3} \]
+        \subsection{c)}  
+            \begin{enumerate}
+                \item $c_{0}$: costo de la asignacióñ
+                \item $c_{1}$: costo de la llamada a .Length() y la comparación
+                \item $c_{2}$: costo del incremento
+                \item $c_{3}$: costo del if y la comparación
+                \item $c_{4}$: costo del return
+            \end{enumerate}
+        \[ c_{0} + n(c_{1} + c_{2}) + c_{3} +c_{4}) \]
             \paragraph{
                 T (n) es m\'inimo cuanod el primer elemento es igual a key \\
                 T (n) es m\'aximo cuando no contiene a key
                 }
     \section{Ejercicio 3}
-        \paragraph{
-        El tama\~no de la entrada es 1
-        }
-        \subsection{ }
-            \[ c_{0} + c_{1} + c_{2} + \sqrt{x}\left( C_{3} + c_{4}\right) \]
-        \subsection{ }
-            \[ c_{0} + c_{1} + c_{2} + c_{3} +  x ( c_{4} + c_{5} + c_{6} +c_{7}) + c_{8} \]
+        \subsection{a)}
+            \begin{enumerate}
+             \item $c_{1}:$ costo de la comparación
+             \item $c_{2}:$ costo de la asignación
+             \item $c_{3}:$ costo de la comparación
+             \item $c_{4}:$ costo del return y la comparación
+            \end{enumerate}
+
+            El tama\~no de la entrada es 1
+            \[ c_{0} + c_{1} + c_{2} + \sqrt{x}\left( c_{3}\right) +c_{4}\]
+        \subsection{b)}
+            \begin{enumerate}
+                \item $c_{0}:$ costo de la comparación
+                \item $c_{1}:$ costo de la comparación
+                \item $c_{2}:$ costo de la asignación A y B
+                \item $c_{3}:$ costo de la asignación
+                \item $c_{4}:$ costo de la comparación
+                \item $c_{5}:$ costo del incremento
+                \item $c_{6}:$ costo de la asignación
+                \item $c_{7}:$ costo de la asignación
+                \item $c_{8}:$ costo de la asignación
+            \end{enumerate}
+           El tama\~no de la entrada es 1
+           \[ c_{0} + c_{1} + c_{2} + c_{3} +  x ( c_{4} + c_{5} + c_{6} +c_{7} + c_{8}) + c_{9} \]
             
     \section{Ejercicio 4}
         \begin{lstlisting}

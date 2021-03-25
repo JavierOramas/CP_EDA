@@ -1,0 +1,44 @@
+\documentclass{article}
+\title{CP2 EDA}
+\author{Javier Alejandro Oramas López C-212}
+
+\begin{document}
+    \maketitle
+
+    \section{}
+        \subsection{Si $ T_1{n} = O(f(n)) $ y $T_2(n) = O(g(n))}
+        
+            \subsubsection{$ T_1(n) + T_2(n) = O(f(n)+g(n)) $}
+
+            Como $T_1(n) = O(f(n))$, se cumple que $T_1{n} \leq c_1f(n)  (1)$, con $c_1 > 0$,
+            Como $T_2(n) = O(g(n))$, se cumple que $T_2{n} \leq c_2g(n)  (2)$, con $c_2 > 0$
+            $T_1(n) + T_2(n) \leq c_1f(n) + c_2g(n) \leq max(c_1,c_2) f(n) + max(c_1, c_2)g(n) = max(c_1, c_2)(f(n)+g(n))$
+            Tomemos $c_3 = max(c_1, c_2)$, se cumple que $T_1(n) + T_2(n) \leq c_3 (f(n)+g(n))$
+            \[T_1(n) + T_2(n) = O(f(n)+g(n))\]
+
+            \subsubsection{$T_1(n) + T_2(n) = O(max(f(n), g(n)))$}
+
+            Como tenemos (1) y (2):
+
+            $T_1(n) +T_2(n) \leq c_1 f(n) + c_2g(n) \leq c_1 max(f(n), g(n))$
+            y con $ c_3 = c_1+c_2, \exists c_3 : T_1(n) +T_2(n) \leq c_3(max(f(n), g(n)))$
+            \[T_1(n) +T_2(n) = O(max(f(n), g(n)))\]
+        
+        \subsection{si f(n) = O(g(n)) \Rightarrow cf(n) = O(g(n)) , c > 0 }
+            Como f(n) = O(g(n))
+            $\exists c_1 : f(n) \leq c_1g(n)$ (1)
+            $cf(n) \leq c_1*cg(n)$
+            tomemos $c_2 = c_1 * c$
+            $\exists c_2 : cf(n) \leq c2g(n)$
+
+            \[cf(n) = O(g(n))\]
+
+        \subsection{Si f(n) = O(g(n)) \Rightarrow f(n)+c = O(g(n)), c > 0}
+            $f(n) \leq c_1g(n)$
+            $f(n) + c \leq c_1g(n) + c \leq g(n)(c_1+1), \forall n : g(n)\geq c$
+            tomando $ c_2 = c_1 + 1$
+            $\exists c_2 : f(n)+c \leq c_2 g(n)$
+            \[f(n)+c = O (g(n))\] 
+
+
+\end{document}
