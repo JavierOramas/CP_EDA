@@ -1,0 +1,41 @@
+\documentclass{article}
+\title{CP4 EDA árbol binario de búsqueda}
+\author{Javier Alejandro Oramas López C212}
+\date{}
+
+\begin{document}
+    \maketitle
+    \section{}
+    Ejercicio resuelto previamente
+    \section{}
+    Sea y un nodo del árbol T y x un nodo hoja hijo de y\\
+    Sabemos que si x es hijo de y, x = y.Previous (Right) o x = y.Next (left)\\
+    supongamos que x = y.Next (Left)\\
+    Como se demostró en el ejercicio 1, si x = y.Next:\\
+    y.key > x.key y además se cumple:\\
+    \[\not \exists z : y.key > z.key > x.key \]
+    por tanto y es el menor elemento de T mayor que x.key
+    
+    de forma análoga se demuestra que si x = y.Previous (left):\\
+    y es el mayor elemento de T menor que x.key
+    
+    Luego, tenemos que si se cumple que x es un nodo hoja hijo de y, y es el menor elemento de T mayor que x.key o y es el mayor elemento de T menor que x.key
+    
+    \section{}
+    Sea x un nodo de T al que se le aplica la función InOrder\\
+    Si $x.Left \not = Null$, todos los elementos de x.Left van a ser menores que x.key\\
+    Si $x.Left = Null$, no habrá elementos menores que x.key\\
+    de manera análoga, \\
+    Si $x.Right \not = Null$, todos los elementos de x.Right van a ser mayores que x.key\\
+    Si $x.Right = Null$, no habrá elementos mayores que x.key\\
+
+    luego, el array ordenado ascendentemente de un arbol será:\\
+
+    \[Ordenado(x_0.Left) + x_0 + Ordenado(x_0.Right)\]
+    
+    que será equivalente a ejecutar el algoritmo InOrder en el árbol
+
+    \section{}
+    Ejercicio resuelto previamente
+
+\end{document}
