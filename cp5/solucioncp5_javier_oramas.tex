@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\author{Javier A. Oramas López}
+\title{CP-5 AVL}
+
+\begin{document}
+    \maketitle
+
+    \section{ Determine si las siguientes proposiciones son verdaderas (V) o falsas (F). Argumente su respuesta en cada caso.}
+        \begin{enumerate}
+            \item \textbf{F} La menor cantidad de nodos necesarios para construir un árbol AVL de altura 6 es 34. \\
+                La menor cantidad de nodos necesarios para construir un AVL de altura h se puede expresar como:\\
+                \[N(x) = N(h-1) + N(h-2) + 1, N(0) = 1, N(1) = 2\]
+                \[N(6) = N(5) + N(4) + 1\]
+                \[N(6) = 20 + 12 + 1\]
+                \[N(6) = 33\]
+            \item \textbf{V} La mayor altura de un árbol AVL con 10 nodos es 3.\\
+                Utilizando la misma fórmula del inciso anterior podemos ver que la mínima cantidad de nodos necesaria para
+                obtener un AVL de altura 3 es 7, pero para obtener un AVL de altura 4 se necesitan 12 nodos, luego, con 10 
+                nodos la mayor altura que puede tener un AVL es 3.
+                \[N(3) = 7\]
+                \[N(4) = 12\]
+            \item \textbf{F} El recorrido entreorden en un árbol AVL es $\theta(n)$.\\
+                El Recorrido del AVL, como árbol binario, es $O(n)$.
+            
+            \item \textbf{V} En todo árbol AVL la diferencia entre la longitud del camino más largo desde la raı́z hasta una hoja
+            y la longitud del camino más corto desde la raı́z hasta una hoja es siempre menor o igual a 2\\
+                Como En un AVL, la diferencia de alturas de sus sub-árboles derecho e izquierdo es a lo más 1, luego la diferencia
+                entre el camino más largo y el más corto va a ser, a lo sumo 1, y $1 \leq 2$
+        \section{ Diseñe un algoritmo que dado un árbol binario de búsqueda T determine si es un árbol AVL. La complejidad
+        temporal del algoritmo debe ser O(n), donde n es la cantidad de nodos en T }
+        
+        \end{enumerate}
+\end{document}
