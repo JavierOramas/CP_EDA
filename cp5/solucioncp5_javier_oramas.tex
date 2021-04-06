@@ -1,5 +1,31 @@
-\documentclass{article}
+\documentclass[10pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{color}
 \usepackage[utf8]{inputenc}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{pink}{rgb}{1.0,0.0,0.5}
+
+\lstset{
+  frame=none,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{pink},
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 \author{Javier A. Oramas López}
 \title{CP-5 AVL}
 
@@ -27,8 +53,151 @@
             y la longitud del camino más corto desde la raı́z hasta una hoja es siempre menor o igual a 2\\
                 Como En un AVL, la diferencia de alturas de sus sub-árboles derecho e izquierdo es a lo más 1, luego la diferencia
                 entre el camino más largo y el más corto va a ser, a lo sumo 1, y $1 \leq 2$
+            \end{enumerate}
         \section{ Diseñe un algoritmo que dado un árbol binario de búsqueda T determine si es un árbol AVL. La complejidad
         temporal del algoritmo debe ser O(n), donde n es la cantidad de nodos en T }
+        Partiendo de que si un árbol es AVL, cada sub-árbol va a ser AVL también, definimos un algoritmo recursivo
+        que va a verificar que cada uno de los subárboles es AVL, de esta manera, solo entra a cada nodo una vez,
+        por tanto, la complejidad del algoritmo será O(n)
+        \begin{lstlisting}
+            def EsAVL(Nodo nodo, int h):
+
+                hIzq = 0                            
+                esAVLIzq, hIzq = EsAVL(nodo.izq, 0) 
+                if(not esAVLIzq):                   
+                    return False, 0                     
+                
+                hDer = 0                            
+                esAVLDer, hDer = EsAVL(nodo.der, 0) 
+                if(not esAVLDer):                   
+                    sreturn False, 0
+
+                if(abs(hDer-hIzq) > 1):             
+                    return False, 0
+
+                h = max(hIzq, hDer)+1               
+
+                return True, h                      
+        \end{lstlisting}
+        \section{Dada una lista ordenada L de n elementos diseñe un algoritmo que construya un árbol AVL que posea todos
+        los elementos de L. La complejidad temporal del algoritmo debe ser O(n).
+        }
+        La Idea de este algoritmo es recursivamente ir construyendo el árbol, tomando el elemento en el centro de la lista
+        como valor del nodo y luego picando en dos la lista construir los sub-árboles, de este modo solo se recorre cada 
+        nodo/elemento de la lista una sola vez
+        \begin{lstlisting}
+            def CrearAVL(L):
+                nodo = Node()
+                CrearAVLRec(nodo, L)
+
+            def CrearAVLRec( nodo, L):
+                l = len(L)
+                if (l > 2):
+                    nodo.val = L[l/2]
+                    nodo.izq = Node()
+                    nodo.der = Node()
+                    CrearAVL(nodo.Izq, L[:l/2-1])
+                    CrearAVL(nodo.Der, L[:l/2+1])
+                
+                if (l == 2):
+                    nodo.val = L[l/2]
+                    nodo.izq = Node()
+                    CrearAVL(nodo.Izq, L[:l/2-1])
+                
+                if (l == 1):
+                    nodo.val = L[l/2]
+
+        \end{lstlisting}
+    \section{Implemente los métodos Insert(T, key) y Erase(T, key) para árboles AVL. La complejidad temporal de
+    cada método debe ser O(log n), donde n es la cantidad de nodos en T . Muestre cómo actualizar correctamente
+    la propiedad size de los nodos involucrados luego de una inserción/eliminación.
+    }
+
+    Sea AVL una estructura de datos que representa un árbol AVL
+    cada Nodo t de AVL tiene las siguientes propiedades:
+    \begin{enumerate}
+        \item val
+        \item left
+        \item right
+        \item h
+    \end{enumerate}
+
+    \begin{lstlisting}
+        def Insert(node, key):
+            if not node:
+                return Node(key)
+            elif key < node.val:
+                node.left = Insert(node.left, key)
+            else:
+                node.right = Insert(node.right, key)
+
+            node.h = 1 + max(getHeight(node.left), getHeight(node.right))
+            
+            balance = getBalance(node)
+
+            if balance > 1 and key < node.left.val:
+                return RotateRight(node)
+
+            if balance < -1 and key > node.right.val:        
+                return RotateLeft(node)
+         
+            if balance > 1 and key > node.left.val:
+                node.left = RotateLeft(node.left)        
+                return RotateRight(node)
+  
+            if balance < -1 and key < node.right.val:
+                node.right = RotateRight(node.right)
+                return RotateLeft(node)
+         
+            return node            
         
-        \end{enumerate}
+        def RotateLeft(z):
+            y = z.right
+            T2 = y.left
+     
+            y.left = z
+            z.right = T2
+   
+            z.h = 1 + max(getHeight(z.left),getHeight(z.right))
+            y.h = 1 + max(getHeight(y.left),getHeight(y.right))
+
+            return y
+     
+    
+        def RotateRigh(z):
+            y = z.left
+            T3 = y.right
+     
+            y.right = z
+            z.left = T3
+     
+            z.h = 1 + max(getHeight(z.left), getHeight(z.right))
+            y.h = 1 + max(getHeight(y.left),getHeight(y.right))
+     
+            return y
+        
+        def getHeight(node):
+            if not node:
+                return 0
+            return node.h
+
+        def getBalance(node):
+            if not node:
+                return 0
+            return gerHeight(node.left) - getHeight(node.right)
+
+    \end{lstlisting}
+
+    \section{ Sea la estructura de datos Set que simula el comportamiento de un conjunto con las funciones:\\
+    Find(S, v): Devuelve True si v ∈ S, False en caso contrario.\\
+    Insert(S, v): Añade el elemento v a S si v ∈
+     / S, hace nada en caso contrario.\\
+    Erase(S, v): Elimina el elemento v de S si v ∈ S, hace nada en caso contrario.\\
+    Rank(S, v): |{u | u ∈ S ∧ u < v}| (Devuelve la cantidad de elementos u ∈ S que sean menores que v).\\
+    Select(S, k): Devuelve u ∈ S con exactamente k elementos menores en S, o null si u no existe.\\
+    SumLessThan(S, v): Devuelve la suma de todos los elementos u ∈ S que sean menores que v.\\
+    Diseñe los métodos de la estructura de datos Set con complejidad temporal O(log |S|).\\
+    }
+    
+
 \end{document}
