@@ -130,6 +130,39 @@
                 node.left = Insert(node.left, key)
             else:
                 node.right = Insert(node.right, key)
+            
+            return MakeBalanced(node)
+
+        def Delete(node, key)
+            if not node:
+                return node
+            
+            if key < mode.val:
+                node.left = Delete(node.left, key)
+            
+            if key > mode.val:
+                node.right = Delete(node.right, key)
+            
+            else:
+                if node.left is None:
+                    temp = node.right
+                    node = None
+                    return temp
+                
+                elif node.right is None:
+                    temp = node.left
+                    node = None
+                    return temp
+            temp = getMinValueNodez(node.right)
+            node.val = temp.val
+            node.right = Delete(node.right, temp.val)
+
+            if node is None:
+                return node
+        
+            return MakeBalanced(node)
+
+        def MakeBalanced(node):
 
             node.h = 1 + max(getHeight(node.left), getHeight(node.right))
             
@@ -185,19 +218,97 @@
             if not node:
                 return 0
             return gerHeight(node.left) - getHeight(node.right)
+        
+        def getMinValueNode(self, root): 
+
+            if root is None or root.left is None: 
+                return root 
+
+            return self.getMinValueNode(root.left)
 
     \end{lstlisting}
 
     \section{ Sea la estructura de datos Set que simula el comportamiento de un conjunto con las funciones:\\
-    Find(S, v): Devuelve True si v ∈ S, False en caso contrario.\\
-    Insert(S, v): Añade el elemento v a S si v ∈
-     / S, hace nada en caso contrario.\\
-    Erase(S, v): Elimina el elemento v de S si v ∈ S, hace nada en caso contrario.\\
-    Rank(S, v): |{u | u ∈ S ∧ u < v}| (Devuelve la cantidad de elementos u ∈ S que sean menores que v).\\
-    Select(S, k): Devuelve u ∈ S con exactamente k elementos menores en S, o null si u no existe.\\
+    Find(S, v): Devuelve True si $v \in S$, False en caso contrario.\\
+    Insert(S, v): Añade el elemento v a S si $v \in S$, hace nada en caso contrario.\\
+    Erase(S, v): Elimina el elemento v de S si$ v \in S$, hace nada en caso contrario.\\
+    Rank(S, v): $|\{u | u \in S ∧ u < v\}|$ (Devuelve la cantidad de elementos $u \in S $que sean menores que v).\\
+    Select(S, k): Devuelve $u \in S $ con exactamente k elementos menores en S, o null si u no existe.\\
     SumLessThan(S, v): Devuelve la suma de todos los elementos u ∈ S que sean menores que v.\\
-    Diseñe los métodos de la estructura de datos Set con complejidad temporal O(log |S|).\\
+    Diseñe los métodos de la estructura de datos Set con complejidad temporal $O(log |S|)$.\\
     }
-    
+
+    Sea S una estructura que contiene un elemento AVL con acceso a todos los métodos implementados en el ejercicio 
+    anterior
+
+    \begin{lstlisting}
+        struct Set:
+            AVL node 
+
+            def Find(S,v):
+                if S.node == None:
+                    return False
+                
+                if S.node.val == v:
+                    return True
+                
+                if S.node.val < v:
+                    return Find(S.node.right, v)
+                
+                return Find(S.node.left, v)
+
+            def Insert(S,v):
+                if Find(S,v):
+                    S.Node = Insert(S.node, v)
+            
+
+            def Delete(S,v):
+                if Find(S,v):
+                    S.Node = Delete(S.node, v)
+            
+            def Rank(S,v):
+                return CountLess(S.node, v)
+            
+            def CountLess(node, v) 
+                if node == None:
+                    return 0
+                
+                if node.val < v:
+                    return 1 + CountLess(node.left, v)+ CountLess(node.right, v)
+
+                elif root.val > v:
+                    return CountLess(node.left, v)
+            
+            def Select(S,k):
+                getElems(S.node, k)
+
+
+            def SumLessThan(S,v):
+                return SumLess(S.node, v, [])
+
+            def CountLess(node, v):
+                if node == None:
+                    return 0
+                
+                if node.val < v:
+                    return node.val + CountLess(node.left, v)+ CountLess(node.right, v)
+
+                elif root.val > v:
+                    return CountLess(node.left, v)
+
+            def getElems(node, k, list):
+                if node != None:
+                    list = getElems(node.left, k, list)
+
+                    if len(list) == k
+                        return list
+                    list.append(node.val)
+
+                    list = getElems(node.right, k, list)
+
+            
+
+
+    \end{lstlisting}
 
 \end{document}
